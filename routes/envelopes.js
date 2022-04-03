@@ -8,3 +8,7 @@ const {
     updateEnvelope,
     deleteEnvelope
 } = require ('../controllers/envelopesController')
+
+router.get("/", getEnvelopes)
+
+module.exports = router
