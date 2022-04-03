@@ -45,3 +45,25 @@ exports.addEnvelope = async (req, res) => {
       res.status(500).send(error) 
     }
 }
+
+exports.updateEnvelope = async (req, res) => {
+    try {
+        const {id} = req.params
+        const {concern, budget} = req.body
+
+        const envelopes = await db
+        const envelope = findById(envelopes, id)
+
+        if(!envelope){
+            return res.status(404).send({
+                message: "Envelope not found"
+            })
+        }
+        envelope.concern = concern
+        envelope.budget = budget
+        res.status(201).send(envelopes)
+        
+    } catch (error) {
+        res.status(500).send(error)
+    } 
+}
