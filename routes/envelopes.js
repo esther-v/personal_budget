@@ -11,4 +11,6 @@ const {
 
 router.get("/", getEnvelopes)
 
+router.get("/:id", getEnvelopeById)
+
 module.exports = router
