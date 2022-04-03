@@ -6,7 +6,8 @@ const {
     addEnvelope,
     getEnvelopeById,
     updateEnvelope,
-    deleteEnvelope
+    deleteEnvelope,
+    transfer
 } = require ('../controllers/envelopesController')
 
 router.get("/", getEnvelopes)
@@ -18,5 +19,7 @@ router.post("/", addEnvelope)
 router.put("/:id", updateEnvelope)
 
 router.delete("/:id", deleteEnvelope)
+
+router.post("/transfer/:fromId/:toId", transfer)
 
 module.exports = router
