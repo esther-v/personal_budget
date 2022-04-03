@@ -13,4 +13,6 @@ router.get("/", getEnvelopes)
 
 router.get("/:id", getEnvelopeById)
 
+router.post("/", addEnvelope)
+
 module.exports = router

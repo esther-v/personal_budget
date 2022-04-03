@@ -27,3 +27,21 @@ exports.getEnvelopeById = async (req, res) => {
         res.status(500).send(error)
     }
 }
+
+exports.addEnvelope = async (req, res) => {
+    try {
+        const {concern, budget} = req.body
+
+        const envelopes = await db
+        const newId = createId(envelopes)
+        const newEnvelope = {
+            id: newId,
+            concern,
+            budget
+        }
+        envelopes.push(newEnvelope)
+        res.status(201).send(newEnvelope)
+    } catch (error) {
+      res.status(500).send(error) 
+    }
+}
