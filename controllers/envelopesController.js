@@ -67,3 +67,24 @@ exports.updateEnvelope = async (req, res) => {
         res.status(500).send(error)
     } 
 }
+
+exports.deleteEnvelope = async (req, res) => {
+
+    try {
+        const {id} = req.params
+        const envelopes = await db
+        const envelope = findById(envelopes, id)
+
+
+        if(!envelope) {
+            return res.status(404).send({message: "Envelope not found"})
+        }
+
+        const updatedEnvelopes = deleteById(envelopes, id)
+        return res.status(204).send(updatedEnvelopes)
+        
+    } catch (error) {
+        res.status(500).send(error)
+    }
+    
+}

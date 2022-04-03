@@ -17,4 +17,6 @@ router.post("/", addEnvelope)
 
 router.put("/:id", updateEnvelope)
 
+router.delete("/:id", deleteEnvelope)
+
 module.exports = router
